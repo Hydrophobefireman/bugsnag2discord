@@ -2,6 +2,7 @@
 
 import requests
 from flask import Flask, request
+from urllib.parse import unquote
 
 
 app = Flask(__name__)
@@ -15,7 +16,7 @@ def catch_all():
 
 @app.route("/send", strict_slashes=False, methods=["post"])
 def send():
-    discord_url = request.args["discord_url"]
+    discord_url = unquote(request.args["discord_url"])
     bug = request.json
 
     error_title = f"{bug['error']['exceptionClass']}: {bug['error']['message']}"
