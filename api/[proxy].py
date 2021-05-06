@@ -22,7 +22,7 @@ def send():
     method = bug["error"]["context"]
     app = bug["project"]["name"]
     environment = bug["error"]["releaseStage"]
-    error_url = bug["error"]["errorUrl"]
+    error_url = bug["error"]["url"]
     fields = [
         {
             "name": "Error",
